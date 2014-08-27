@@ -35,10 +35,12 @@ class Author_Bio extends WP_Widget {
             if ( $instance['title']){
                 echo $args['before_title'] .$instance['title']. $args['after_title'];}
             $text='';
+            $text.=get_the_author_meta('user_firstname',$instance['user']);
+            $text.=" ".get_the_author_meta('user_lastname',$instance['user']);
             if($instance['alignment']){
 		$text .= '<span class="align' . esc_attr( $instance['alignment'] ) . '">';
             }
-            $text.=get_avatar($instance['user'],$instance['size']);
+            $text.=get_avatar($instance['user'],$instance['size']);            
             if($instance['alignment'])
                 $text.='</span>';
             if($instance['sort_radiobox']=="bio")
