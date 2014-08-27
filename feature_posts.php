@@ -99,6 +99,7 @@ class Featured_Posts extends WP_Widget {
     }       
     public function widget($args, $instance) {   
         global $category;
+        $category=$instance['posts_category'];
         $post_count = $instance['post_count'];
         $title = apply_filters('widget_title', $instance['title']);
 	//Display the widget title
