@@ -90,7 +90,6 @@ class Post_Stats_Counter extends WP_Widget {
                 echo $args['before_title'] .$title. $args['after_title'];}
             if($instance['sort_radio']=="comments") {  
                 $args = array(
-                    'author'=>$author_id,
                     "posts_per_page" => $post_count,
                     "post_type" => "post",
                     "post_status" => "publish",
@@ -166,12 +165,11 @@ class Post_Stats_Counter extends WP_Widget {
          }
          else {
             $arg = array(
-                'author'=>$author_id,
                 "posts_per_page" => $post_count,
                 "post_type" => "post",
                 "post_status" => "publish",
                 "meta_key" => "wp_views",
-                "order_by"=>"meta_value_num",
+                "orderby" => "meta_value_num",
                 "order" => "DESC"
             );
             $asc_list = new WP_Query($arg);
