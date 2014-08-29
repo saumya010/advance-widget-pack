@@ -119,10 +119,10 @@ class Post_Stats_Counter extends WP_Widget {
                             echo get_the_date();
                         echo"</div>";
                     }          
-                    if(function_exists("display_post_author_name")){                        
+                    if(function_exists("awp_display_post_author_name")){                        
                         if($instance['post-author']){           
                             echo "<div class = 'post-by'>";
-                                display_post_author_name();
+                                awp_display_post_author_name();
                                 echo"<div class='author-gravatar'>".'<a href=' .get_author_posts_url(get_the_author_meta('ID')).'">'.get_avatar(get_the_author_meta('ID'),65).'</a>'."</div>";
                             echo "</div>";
                         }                        
@@ -147,7 +147,7 @@ class Post_Stats_Counter extends WP_Widget {
                     }
                     if ($instance['views']){
                         echo"<div class='count'>";                 
-                            show_views();
+                            awp_show_views();
                         echo"</div>";
                     }
                     if($instance['post-category']||$instance['comments']||$instance['views']){
@@ -195,10 +195,10 @@ class Post_Stats_Counter extends WP_Widget {
                                     echo get_the_date();
                                     echo"</p></div>";
                             }            
-                            if(function_exists("display_post_author_name")){                            
+                            if(function_exists("awp_display_post_author_name")){                            
                                 if($instance['post-author']){
                                     echo "<div class = 'post-by'><p>";
-                                        display_post_author_name();
+                                        awp_display_post_author_name();
                                         echo"<div class='author-gravatar'>".'<a href=' .get_author_posts_url(get_the_author_meta('ID')).'">'.get_avatar(get_the_author_meta('ID'),65).'</a>'."</div>";
                                     echo "</p></div>";
                                 }                            
@@ -223,7 +223,7 @@ class Post_Stats_Counter extends WP_Widget {
                         }
                         if ($instance['views']){
                             echo"<div class='count'>";
-                                show_views();
+                                awp_show_views();
                             echo"</div>";
                         }
                         if($instance['post-category']||$instance['comments']||$instance['views']){

@@ -36,7 +36,7 @@ class awp_recent_posts extends WP_Widget {
                 echo '<h4 class="post-title"><a href="'.get_permalink($post->ID).'">'.the_title('', '', false).'</a></h4>';
                 if($instance['show_image']){
                     echo '<div class="featured-image">';
-                        display_featured_image();
+                        awp_display_featured_image();
                     echo '</div>';
                 }
                     if($instance['show_date'] || $instance['show_author'] )
@@ -49,7 +49,7 @@ class awp_recent_posts extends WP_Widget {
                     }
                     if($instance['show_author']){
                         echo " By: ";
-                        display_post_author_name();
+                        awp_display_post_author_name();
                     }
                      if($instance['show_date'] || $instance['show_author'] )
                     {

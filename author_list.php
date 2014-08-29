@@ -55,7 +55,7 @@ class Author_List extends WP_Widget {
             if ( $title ){
                 echo $args['before_title'].$title.$args['after_title'];
             }              
-            ab_get_author_list($instance['noauth'],$instance['exc']);	
+            awp_get_author_list($instance['noauth'],$instance['exc']);	
             echo $args['after_widget'];
     }
 }

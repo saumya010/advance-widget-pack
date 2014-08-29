@@ -12,26 +12,26 @@
 ?>
 <?php
 add_action('wp_head', 'awp_add_view');
-function ab_get_author_list($noauth,$exc){
+function awp_get_author_list($noauth,$exc){
     echo "<ul>";
     wp_list_authors(array('number'=>$noauth,'exclude'=>$exc));
     echo "</ul>";
 }
-function display_featured_image(){    
+function awp_display_featured_image(){    
     global $post;
     $post_id=$post->ID;
     if ( has_post_thumbnail($post_id) ) {
         the_post_thumbnail('featured-thumb');
     }   
 }
-function display_post_author_name(){
+function awp_display_post_author_name(){
     global $post;
     $author_id= $post->post_author;
     echo get_the_author_meta('first_name',$author_id);
     echo " ";
     echo get_the_author_meta('last_name',$author_id);
 }
-function display_author_description($post_id=0){
+function awp_display_author_description($post_id=0){
         $post = get_post( $post_id );
         $auth_id=$post->post_author;
         echo get_the_author_meta( 'description', $auth_id);
@@ -56,7 +56,7 @@ function awp_get_view_count() {
     }
     return $current_views;
 }
-function show_views($singular = "view", $plural = "views", $before = "This post has: ") {
+function awp_show_views($singular = "view", $plural = "views", $before = "This post has: ") {
     global $post;
     $current_views = get_post_meta($post->ID, "wp_views", true);  
     $views_text = $before . $current_views . " ";

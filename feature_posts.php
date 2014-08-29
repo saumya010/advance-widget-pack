@@ -122,7 +122,7 @@ class Featured_Posts extends WP_Widget {
                             echo'<div class="featured-post-data">';
                                 echo'<div class="featured-image">';
                                     if($instance['check_image']){                          
-                                        display_featured_image();
+                                        awp_display_featured_image();
                                     }   
                                 echo'</div>';
                                 echo'<div class="post-meta">';
@@ -136,7 +136,7 @@ class Featured_Posts extends WP_Widget {
                                     }
                                     if($instance['check_author']){
                                         echo "<p>";
-                                        display_post_author_name();
+                                        awp_display_post_author_name();
                                         echo "</p>";
                                     }                                                                           
                                 echo'</div>';
@@ -153,7 +153,7 @@ class Featured_Posts extends WP_Widget {
                                 }
                                 if($instance['check_views']){                                    
                                     echo "<p>";
-                                    show_views();
+                                    awp_show_views();
                                     echo "</p>";
                                 }
                             echo'</div>';
