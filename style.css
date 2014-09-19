@@ -1,0 +1,73 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 3, 2014, 12:32:24 PM
+    Author     : sony
+*/
+
+.widget-title{
+    color:darkcyan;
+    font-family:cursive;
+}
+.author_bio, .author_list, .widget_class, .awp_recent_posts, .my_widget_class, .post_plugin{
+    border:1px solid #d3d3d3;
+    padding:10px;
+    border-radius:10px;
+}
+h4{
+    text-transform: uppercase;
+    font-size:15px !important;
+}
+li{
+    list-style: square;
+}
+.alignleft img, .author-gravatar img, .post-comm-avatar img{
+    width:70px;
+    border-radius:10px;
+}
+.details, .details p{
+    font-size:13px;
+}
+a{
+    color:steelblue;
+}
+.awp-list li {
+    list-style: none;
+    border-bottom:1px solid #d3d3d3;
+    margin-bottom:10px;
+}
+.awp-list li:last-child{
+    border-bottom:none;
+}
+.post-categories li{
+    border-bottom:none;
+    list-style:square;
+}
+.awp-list{
+    padding:0;
+}
+.featured-image img{
+    height:160px;
+    border-radius:10px;
+}
+.count{
+    margin-top: 5px;
+}
+.post-excerpt p{
+    font-size:14px;
+}
+.recentcomments{
+    margin-bottom:10px;
+}
+.post-comment, .post-comm-avatar{
+    margin-bottom:5px;
+}
+.post_plugin p{
+    font-size:14px;
+}
+.post_plugin div{
+    margin-bottom:5px;
+}

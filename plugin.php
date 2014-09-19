@@ -3,7 +3,7 @@
    Plugin Name: Advance Widget Pack
    Plugin URI: http://www.ideaboxthemes.com
    Description: A plugin to display author bio, author list, popular post, featured posts, recent posts and recent comments.
-   Version: 1.0
+   Version: 1.0.1
    Author: Saumya Sharma,Purva Jain, Nidarshana Sharma, Nikita Pariyani, Shruti Taldar
    Author URI: http://ideaboxthemes.com
    License: GPL2 or later
@@ -11,12 +11,21 @@
    */
 ?>
 <?php
+    
+    function awp_stylesheet() 
+        {
+            wp_register_style( 'my-plugin', plugins_url('style.css', __FILE__) );
+            wp_enqueue_style( 'my-plugin',plugins_url('style.css', __FILE__) );
+        }
+    add_action('wp_enqueue_scripts', 'awp_stylesheet');
+        
 add_action('wp_head', 'awp_add_view');
 function awp_get_author_list($noauth,$exc){
     echo "<ul>";
     wp_list_authors(array('number'=>$noauth,'exclude'=>$exc));
     echo "</ul>";
 }
+
 function awp_display_featured_image(){    
     global $post;
     $post_id=$post->ID;

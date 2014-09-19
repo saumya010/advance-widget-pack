@@ -56,14 +56,16 @@ class awp_recent_posts extends WP_Widget {
                         echo '</div>';
                     }
                     if($instance['show_category']){
+                        echo "<strong>Post Category: </strong>";
                         echo get_the_category_list();
                     }
                     if($instance['show_comment_number']){
                         comments_number();
                     }
                     if($instance['show_excerpt']){
+                        echo "<div class='post-excerpt'>";
                         the_excerpt();
-                        echo "</p>";
+                        echo "</div></p>";
                     }                    
             echo "</li>";
         endwhile;

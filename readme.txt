@@ -3,7 +3,7 @@ Contributors: purva24, saumya010, nidarshana, shruti_11, nikita08
 Tags: recent posts, recent comments, popular posts, featured posts, author details
 Requires at least: 3.9.1
 Tested up to: 3.9.1
-Stable tag: trunk
+Stable tag: 1.0.1
 License: GPL2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,9 +34,9 @@ You can choose to display the posts belonging to a particular category only.
 
 
 == Installation ==
-Download Advance Widget Pack plugin via Wordpress.org plugin repository or by uploading the files to your server. 
-Activate the plugin.
-Navigate to widgets section and drag the required widgets to your sidebar. 
+1. Download Advance Widget Pack plugin via Wordpress.org plugin repository or by uploading the files to your server. 
+2. Activate the plugin.
+3. Navigate to widgets section and drag the required widgets to your sidebar. 
 
 
 == Frequently Asked Questions ==
@@ -47,10 +47,16 @@ Q. Why do I get \"image not found \" instead of a image?
 A. If the image is not displayed, then you have probably not set a featured image for your post.
 
 == Screenshots ==
-1. Widgets in sidebar
-2. Widgets in sidebar
-3. widgets in sidebar
-
+1. Author Details widget.
+2. Author List widget.
+3. Featured Post widget.
+4. Popular Post widget.
+5. Recent Comments widget.
+6. Recent Posts widget.
 == Changelog ==
-v1.0
+v1.0.1
+Added screenshots.
+Minor bug fixes.
+Added stylesheet.
+v1.0.0
 initial release

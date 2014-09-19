@@ -46,7 +46,7 @@ class Author_Bio extends WP_Widget {
             if($instance['sort_radiobox']=="bio")
                 $text.="<div class='details'><p>".get_the_author_meta('description',$instance['user'])."</p>";
             else
-                $text.="<p>".$instance['text-bio']."</p>";
+                $text.='<p class="details">'.$instance['text-bio']."</p>";
             $text .= $instance['page'] ? sprintf( ' <a class="pagelink" href="%s">%s</a>', get_page_link( $instance['page'] ), $instance['page_link_text'] ) : '';
             echo wpautop($text);
             if ( $instance['posts_link'] )

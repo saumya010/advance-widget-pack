@@ -122,9 +122,10 @@ class Post_Stats_Counter extends WP_Widget {
                     if(function_exists("awp_display_post_author_name")){                        
                         if($instance['post-author']){           
                             echo "<div class = 'post-by'>";
+                                echo "<p>By: ";
                                 awp_display_post_author_name();
                                 echo"<div class='author-gravatar'>".'<a href=' .get_author_posts_url(get_the_author_meta('ID')).'">'.get_avatar(get_the_author_meta('ID'),65).'</a>'."</div>";
-                            echo "</div>";
+                            echo "</p></div>";
                         }                        
                     }         
                     if($instance['post-date']||$instance['post-author']){
@@ -198,6 +199,7 @@ class Post_Stats_Counter extends WP_Widget {
                             if(function_exists("awp_display_post_author_name")){                            
                                 if($instance['post-author']){
                                     echo "<div class = 'post-by'><p>";
+                                        echo "<p>By: ";
                                         awp_display_post_author_name();
                                         echo"<div class='author-gravatar'>".'<a href=' .get_author_posts_url(get_the_author_meta('ID')).'">'.get_avatar(get_the_author_meta('ID'),65).'</a>'."</div>";
                                     echo "</p></div>";
@@ -237,7 +239,8 @@ class Post_Stats_Counter extends WP_Widget {
                     echo"</li>";
                 endwhile;
            echo "</ul>";
-         }        
+         } 
+         
          echo $args['after_widget'];
     }
 }
