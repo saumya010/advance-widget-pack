@@ -4,7 +4,7 @@ class Post_Stats_Counter extends WP_Widget {
 	function __construct() {
 	$widget_ops = array('classname' => 'widget_class', 'description' => __('Widget to display popular posts'));
 	$control_ops = array('width' => 200, 'height' => 250);
-	parent::WP_Widget(false, $name = __('AWP Popular Posts'), $widget_ops, $control_ops );
+	parent::__construct(false, $name = __('AWP Popular Posts'), $widget_ops, $control_ops );
 ?>
 <?php
     }

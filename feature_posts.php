@@ -4,7 +4,7 @@ class Featured_Posts extends WP_Widget {
 	function __construct() {
 	$widget_ops = array('classname' => 'post_plugin', 'description' => __('Widget to display post details', 'wp_post_plugin'));
 	$control_ops = array('width' => 200, 'height' => 250);
-	parent::WP_Widget(false, $name = __('AWP Featured Posts', 'wp_post_plugin'), $widget_ops, $control_ops );
+	parent::__construct(false, $name = __('AWP Featured Posts', 'wp_post_plugin'), $widget_ops, $control_ops );
     }
     public function form($instance) { 
         $defaults = array(

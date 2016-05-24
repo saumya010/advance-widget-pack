@@ -4,7 +4,7 @@ class Author_List extends WP_Widget {
 	function __construct() {
             $widget_ops = array('classname' => 'author_list', 'description' => __('Displays author list'));
             $control_ops = array('width' => 200, 'height' => 250);
-            parent::WP_Widget(false, $name = __('AWP Author List'), $widget_ops, $control_ops );
+            parent::__construct(false, $name = __('AWP Author List'), $widget_ops, $control_ops );
         }
         function form($instance) { 
             $defaults=array('title' => __('Author List'),'exc'=>'','noauth'=>__('50'));

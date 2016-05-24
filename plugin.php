@@ -1,100 +1,102 @@
 <?php
-   /*
-   Plugin Name: Advance Widget Pack
-   Plugin URI: http://www.ideaboxthemes.com
-   Description: A plugin to display author bio, author list, popular post, featured posts, recent posts and recent comments.
-   Version: 1.0.1
-   Author: Saumya Sharma,Purva Jain, Nidarshana Sharma, Nikita Pariyani, Shruti Taldar
-   Author URI: http://ideaboxthemes.com
-   License: GPL2 or later
-   License URI: http://www.gnu.org/licenses/gpl-2.0.html
-   */
+	 /*
+	 Plugin Name: Advance Widget Pack
+	 Plugin URI: http://www.github.com/saumya010/advance-widget-pack/
+	 Description: A plugin to display author bio, author list, popular post, featured posts, recent posts and recent comments.
+	 Version: 1.0.2
+	 Author: Saumya Sharma, Purva Jain, Nidarshana Sharma, Nikita Pariyani, Shruti Taldar
+	 Author URI: http://github.com/saumya010
+	 License: GPL2 or later
+	 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+	 */
 ?>
 <?php
-    
-    function awp_stylesheet() 
-        {
-            wp_register_style( 'my-plugin', plugins_url('style.css', __FILE__) );
-            wp_enqueue_style( 'my-plugin',plugins_url('style.css', __FILE__) );
-        }
-    add_action('wp_enqueue_scripts', 'awp_stylesheet');
-        
+
+function awp_stylesheet()
+{
+  wp_register_style( 'my-plugin', plugins_url('style.css', __FILE__) );
+	wp_enqueue_style( 'my-plugin',plugins_url('style.css', __FILE__) );
+}
+add_action('wp_enqueue_scripts', 'awp_stylesheet');
+
 add_action('wp_head', 'awp_add_view');
 function awp_get_author_list($noauth,$exc){
-    echo "<ul>";
-    wp_list_authors(array('number'=>$noauth,'exclude'=>$exc));
-    echo "</ul>";
+		echo "<ul>";
+		wp_list_authors(array('number'=>$noauth,'exclude'=>$exc));
+		echo "</ul>";
 }
 
-function awp_display_featured_image(){    
-    global $post;
-    $post_id=$post->ID;
-    if ( has_post_thumbnail($post_id) ) {
-        the_post_thumbnail('featured-thumb');
-    }   
+function awp_display_featured_image(){
+		global $post;
+		$post_id=$post->ID;
+		if ( has_post_thumbnail($post_id) ) {
+				the_post_thumbnail('featured-thumb');
+		}
 }
 function awp_display_post_author_name(){
-    global $post;
-    $author_id= $post->post_author;
-    echo get_the_author_meta('first_name',$author_id);
-    echo " ";
-    echo get_the_author_meta('last_name',$author_id);
+		global $post;
+		$author_id= $post->post_author;
+		echo get_the_author_meta('first_name',$author_id);
+		echo " ";
+		echo get_the_author_meta('last_name',$author_id);
 }
 function awp_display_author_description($post_id=0){
-        $post = get_post( $post_id );
-        $auth_id=$post->post_author;
-        echo get_the_author_meta( 'description', $auth_id);
+				$post = get_post( $post_id );
+				$auth_id=$post->post_author;
+				echo get_the_author_meta( 'description', $auth_id);
 }
 function awp_add_view(){
-    if(is_single()){
-        global $post;    
-        $current_views=get_post_meta($post->ID, "wp_views", true);
-        if(!isset($current_views) OR empty($current_views) OR !is_numeric($current_views) ) {
-            $current_views = 0;
-        }
-        $new_views = $current_views + 1;
-        update_post_meta($post->ID, "wp_views", $new_views);
-        return $new_views;
-    }
+		if(is_single()){
+				global $post;
+				$current_views=get_post_meta($post->ID, "wp_views", true);
+				if(!isset($current_views) OR empty($current_views) OR !is_numeric($current_views) ) {
+						$current_views = 0;
+				}
+				$new_views = $current_views + 1;
+				update_post_meta($post->ID, "wp_views", $new_views);
+				return $new_views;
+		}
 }
 function awp_get_view_count() {
-    global $post;            
-    $current_views = get_post_meta($post->ID, "wp_views", true);
-    if(!isset($current_views) OR empty($current_views) OR !is_numeric($current_views) ) {
-        $current_views = 0;
-    }
-    return $current_views;
+		global $post;
+		$current_views = get_post_meta($post->ID, "wp_views", true);
+		if(!isset($current_views) OR empty($current_views) OR !is_numeric($current_views) ) {
+				$current_views = 0;
+		}
+		return $current_views;
 }
 function awp_show_views($singular = "view", $plural = "views", $before = "This post has: ") {
-    global $post;
-    $current_views = get_post_meta($post->ID, "wp_views", true);  
-    $views_text = $before . $current_views . " ";
-    if ($current_views == 1) {
-        $views_text .= $singular;
-    }
-    else {
-        $views_text .= $plural;
-    }
-    echo $views_text;
+		global $post;
+		$current_views = get_post_meta($post->ID, "wp_views", true);
+		$views_text = $before . $current_views . " ";
+		if ($current_views == 1) {
+				$views_text .= $singular;
+		}
+		else {
+				$views_text .= $plural;
+		}
+		echo $views_text;
 }
 function custom_excerpt_length( $length ) {
 	return 15;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 function new_excerpt_more($more) {
-        global $post;
-        return '<a class="moretag" href="'. get_permalink($post->ID) . '">   Read More..</a>';
+				global $post;
+				return '<a class="moretag" href="'. get_permalink($post->ID) . '">	 Read More..</a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 include 'feature_posts.php';
 include 'popular-post-stat-widget.php';
 include 'recent_posts.php';
 include 'recents.php';
+include 'random-post.php';
 include 'author_list.php';
 include 'author_bio_widget.php';
 add_action('widgets_init',create_function('', 'return register_widget("Recent_Comments");'));
 add_action('widgets_init',create_function('', 'return register_widget("Featured_Posts");'));
 add_action('widgets_init',create_function('', 'return register_widget("Post_Stats_Counter");'));
 add_action('widgets_init',create_function('', 'return register_widget("awp_recent_posts");'));
+add_action('widgets_init',create_function('', 'return register_widget("awp_random_posts");'));
 add_action('widgets_init',create_function('', 'return register_widget("Author_List");'));
 add_action('widgets_init',create_function('', 'return register_widget("Author_Bio");'));
